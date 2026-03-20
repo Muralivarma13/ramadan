@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramadan Wishes</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+
+        /* ✅ Center content */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        color: white;
+    }
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    #wish {
+        font-size: 28px;
+        color: #ffd700;
+        transition: opacity 1s;
+    }
+
+    /* 🌙 Moon */
+    .moon {
+        position: absolute;
+        top: 60px;
+        right: 80px;
+        width: 100px;
+        height: 100px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 30px rgba(255,255,255,0.8);
+    }
+
+    .moon::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 25px;
+        width: 100px;
+        height: 100px;
+        background: #0f2027;
+        border-radius: 50%;
+    }
+
+    /* ✨ Stars */
+    .star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+    }
+
+    /* 📱 Mobile */
+    @media (max-width: 600px) {
+        h1 { font-size: 24px; }
+        #wish { font-size: 18px; padding: 0 10px; }
+    }
+</style>
+
+</head>
+
+<body>
+
+<!-- 🌙 Moon -->
+<div class="moon"></div>
+
+<!-- ✨ Stars -->
+<div class="star" style="top:20px; left:40px;"></div>
+<div class="star" style="top:80px; left:200px;"></div>
+<div class="star" style="top:150px; left:100px;"></div>
+<div class="star" style="top:220px; left:300px;"></div>
+<div class="star" style="top:300px; left:150px;"></div>
+
+<!-- 🌙 Center Content -->
+<h1> 
+    🌙 Ramadan Mubarak 🌙 <br>
+        Chandnii✨
+
+</h1>
+<div id="wish">Loading wishes...</div>
+
+<script>
+    const wishes = [
+        "Ramadan Mubarak! May Allah bless you 🌙",
+        "May your fasts be easy and your prayers accepted 🤲",
+        "Wishing you peace, happiness, and prosperity ✨",
+        "May this Ramadan bring you closer to Allah ❤️",
+        "Stay blessed this holy month 🌙"
+    ];
+
+    function changeWish() {
+        const wishElement = document.getElementById("wish");
+
+        wishElement.style.opacity = 0;
+
+        setTimeout(() => {
+            const randomIndex = Math.floor(Math.random() * wishes.length);
+            wishElement.innerText = wishes[randomIndex];
+            wishElement.style.opacity = 1;
+        }, 500);
+    }
+
+    setInterval(changeWish, 3000);
+    changeWish();
+</script>
+
+</body>
+</html>
